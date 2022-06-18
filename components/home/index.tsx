@@ -124,7 +124,10 @@ function App() {
   }, [scrollIndex]);
   return (
     <>
-      <div ref={outerDivRef} className="outer">
+      <div className="tall:hidden flex w-full h-full justify-center text-center text-[40px]">
+        <p className="">Hight is Too short</p>
+      </div>
+      <div ref={outerDivRef} className="outer invisible tall:visible">
         <div>
           <Nav scrollIndex={scrollIndex} />
           <div className="inner bg-black" id="innerbground">

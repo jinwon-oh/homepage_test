@@ -13,6 +13,9 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
         // nanumbarungothic: ["Nanum Barun Gothic", "sans-serif"],
       },
+      screens: {
+        'tall': { 'raw': '(min-height: 630px)' },
+      }
     },
   },
   plugins: [],
