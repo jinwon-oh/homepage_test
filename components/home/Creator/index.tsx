@@ -82,7 +82,7 @@ const Index = () => {
             Apply
           </span>
           <div className={""}>
-            <img src={"asset/img/rightArrow.png"} className={"h-[12px]"} />
+            <img src={"asset/img/rightArrow.png"} className={"h-[12px] object-contain"} />
           </div>
         </div>
         {/* <div

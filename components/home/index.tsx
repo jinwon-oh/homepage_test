@@ -6,128 +6,146 @@ import Allinoneintro from "./allinoneintro";
 import Creator from "./Creator";
 import Career from "./career";
 import Solution from "../solution";
+
 const DIVIDER_HEIGHT = 7;
 
 function App() {
   const outerDivRef: any = useRef();
   const contactRef = useRef<HTMLDivElement>(null);
 
+  // const [windowSize, setWindowSize] = useState({
+  //   width: window.innerWidth,
+  //   height: window.innerHeight,
+  // });
+  // const handleResize = () => {
+  //   setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // });
+
   const [scrollIndex, setScrollIndex] = useState(1);
   useEffect(() => {
     const wheelHandler = (e: React.FormEvent<EventTarget> | any) => {
-      e.preventDefault();
+      // e.preventDefault();
       const { deltaY } = e;
       const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
       const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-      if (deltaY > 0) {
-        // 스크롤 내릴 때
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
-          //현재 1페이지
-          const nav = document?.getElementById("allinoneintro");
-          nav?.scrollIntoView({ behavior: "smooth" });
-          setScrollIndex(1);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(2);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2.5) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(3);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
-          //현재 4페이지
-          outerDivRef.current.scrollTo({
-            top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(4);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3.5) {
-          //현재 5페이지
-          outerDivRef.current.scrollTo({
-            top: pageHeight * 3.99 + DIVIDER_HEIGHT * 5,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(5);
-        } else {
-          contactRef.current?.scrollIntoView({ behavior: "smooth" });
 
-          setScrollIndex(6);
-        }
+      if (pageHeight < 720) {
       } else {
-        // 스크롤 올릴 때
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
-          //현재 1페이지
-          outerDivRef.current.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(1);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(2);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2.5) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: (pageHeight + DIVIDER_HEIGHT) / 1,
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(3);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3.5) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: (pageHeight + DIVIDER_HEIGHT) / (1 / 2),
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(4);
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4.1) {
-          //현재 2페이지
-          outerDivRef.current.scrollTo({
-            top: (pageHeight + DIVIDER_HEIGHT) / (1 / 3),
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(5);
+        e.preventDefault();
+        if (deltaY > 0) {
+          // 스크롤 내릴 때
+          if (scrollTop >= 0 && scrollTop < pageHeight) {
+            //현재 1페이지
+            const nav = document?.getElementById("allinoneintro");
+            nav?.scrollIntoView({ behavior: "smooth" });
+            setScrollIndex(1);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(2);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2.5) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(3);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
+            //현재 4페이지
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(4);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3.5) {
+            //현재 5페이지
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 3.99 + DIVIDER_HEIGHT * 5,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(5);
+          } else {
+            contactRef.current?.scrollIntoView({ behavior: "smooth" });
+
+            setScrollIndex(6);
+          }
         } else {
-          // 현재 3페이지
-          outerDivRef.current.scrollTo({
-            top: (pageHeight + DIVIDER_HEIGHT) / (1 / 4),
-            left: 0,
-            behavior: "smooth",
-          });
-          setScrollIndex(6);
+          // 스크롤 올릴 때
+          if (scrollTop >= 0 && scrollTop < pageHeight) {
+            //현재 1페이지
+            outerDivRef.current.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(1);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(2);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2.5) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: (pageHeight + DIVIDER_HEIGHT) / 1,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(3);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3.5) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: (pageHeight + DIVIDER_HEIGHT) / (1 / 2),
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(4);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4.1) {
+            //현재 2페이지
+            outerDivRef.current.scrollTo({
+              top: (pageHeight + DIVIDER_HEIGHT) / (1 / 3),
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(5);
+          } else {
+            // 현재 3페이지
+            outerDivRef.current.scrollTo({
+              top: (pageHeight + DIVIDER_HEIGHT) / (1 / 4),
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(6);
+          }
         }
       }
     };
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+
     return () => {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     };
   }, [scrollIndex]);
   return (
     <>
-      <div className="tall:hidden flex w-full h-full justify-center text-center text-[40px]">
-        <p className="">Hight is Too short</p>
-      </div>
-      <div ref={outerDivRef} className="outer invisible tall:visible">
+      <div ref={outerDivRef} className="outer">
         <div>
           <Nav scrollIndex={scrollIndex} />
           <div className="inner bg-black" id="innerbground">
@@ -137,7 +155,7 @@ function App() {
           </div>
           <div className="divider bg-black" />
           <div className="inner bg-white" id="allinoneintro">
-            <div className="w-full max-w-[1280px] h-[calc(100%-100px)] mt-[100px] flex justify-center">
+            <div className="w-full max-w-[1280px] h-full flex justify-center">
               <Allinoneintro />
             </div>
           </div>
@@ -190,7 +208,7 @@ function App() {
                         <div className={" font-semibold"}>DIVE NOW</div>
                         <div className={"pl-[16px]"}>
                           <img
-                            className={"w-[16px] h-[16px]"}
+                            className={"w-[16px] h-[16px] object-contain"}
                             src={"asset/img/rocketIcon.png"}
                             alt={"아이콘"}
                           />

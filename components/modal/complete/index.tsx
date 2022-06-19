@@ -10,7 +10,7 @@ const MyComponent = ({ setModalStep, setContentModal }: Props) => {
       <div className={"mt-[75px] "}>
         <img
           src={"asset/img/completemodalcheck.png"}
-          className={"w-[128px] h-[128px]"}
+          className={"w-[128px] h-[128px] object-contain"}
         />
       </div>
       <div

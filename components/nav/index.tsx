@@ -8,7 +8,7 @@ const Index = ({ scrollIndex }: Props) => {
   return (
     <div
       className={
-        "bg-[#1A1A1A] fixed top-0 left-0 w-auto right-0 h-[70px] md:h-[100px] z-30"
+        "bg-[#1A1A1A] fixed top-0 left-0 w-auto right-0 h-[100px] z-30"
       }
     >
       <div className="w-full h-full flex justify-center">
@@ -17,7 +17,7 @@ const Index = ({ scrollIndex }: Props) => {
             <div>
               <img
                 src={"asset/img/logo.png"}
-                className={"w-full h-[47px]"}
+                className={"w-[130px] h-[47px] object-contain"}
               />
             </div>
             <div className={"lg:flex hidden"}>
@@ -70,10 +70,10 @@ const Index = ({ scrollIndex }: Props) => {
               </div>
               <select
                 id="countries"
+                defaultValue="KO"
                 className="cursor-pointer bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#1A1A1A] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <option selected>KO</option>
-                {/*<option value="KO">KO</option>*/}
+                <option value="KO">KO</option>
                 <option value="US">US</option>
               </select>
             </div>

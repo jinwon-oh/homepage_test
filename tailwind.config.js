@@ -14,7 +14,7 @@ module.exports = {
         // nanumbarungothic: ["Nanum Barun Gothic", "sans-serif"],
       },
       screens: {
-        'tall': { 'raw': '(min-height: 630px)' },
+        'tall': { 'raw': '(min-height: 720px)' },
       }
     },
   },
